@@ -33,6 +33,8 @@ To run:
 3) Open a web browser and go to 127.0.0.1:5000/
 4) Run a query
 
-
+Work By
+-------
+Tejas Arya, Vaibhav Joshi, Ninad Godambe
  
 
