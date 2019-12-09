@@ -15,11 +15,11 @@ natural language descriptions, which efficiently capture network-wide behaviour.
 DEPENDENCIES
 ------------
 Python Packages:
-  Flask
-  Pandas
-  jsonify
-  make_response
-  json
+  Flask,
+  Pandas,
+  jsonify,
+  make_response,
+  json,
   
 Software
 --------
