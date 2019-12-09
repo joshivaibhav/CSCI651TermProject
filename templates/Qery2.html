@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<body>
+<head>
+
+<script
+			src="https://code.jquery.com/jquery-3.4.1.js"
+			  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+			  crossorigin="anonymous">
+			  </script>
+	
+</head>
+
+<select id="query" name="query">
+	 <option>Select Query</option>
+     <option>How many</option>
+     <option>Where is traffic</option>
+</select>
+
+<select id="queryp2" name="queryp2">
+     <option>Select Query</option>
+
+</select>
+
+<select id="queryp3" name="queryp3">
+    <option>NewYork</option>
+    <option>Cambridge</option>
+	<option>Chicago</option>
+	<option>Cleveland</option>
+	<option>Raleigh</option>
+	<option>Atlanta</option>
+	<option>Philadelphia</option>
+	<option>Washington</option>
+	<option>Nashville</option>
+	<option>St.Louis</option>
+	<option>NewOrleans</option>
+	<option>Houston</option>
+	<option>SanAntonio</option>
+	<option>Dallas</option>
+	<option>Orlando</option>
+	<option>Denver</option>
+	<option>KansasCity</option>
+	<option>SanFrancisco</option>
+	<option>Sacramento</option>
+	<option>Portland</option>
+	<option>Seattle</option>
+	<option>SaltLakeCity</option>
+	<option>LosAngeles</option>
+	<option>SanDiego</option>
+	<option>Phoenix</option>
+</select>
+
+<select id="queryp4" name="queryp4">
+    <option> Select Query</option>
+</select>
+
+<select id="queryp5" name="queryp5" hidden="true">
+    <option> </option>
+</select>
+
+<select id="queryp6" name="queryp6" hidden="true">
+    <option>Order Specification</option>
+</select>
+<button id="getoption" onclick="getOption()"> 
+Submit 
+</button> 
+
+<script type="text/javascript">
+		function getOption() {
+		
+			selectElement = document.querySelector('#query'); 		
+			output = selectElement.options[selectElement.selectedIndex].value;
+			
+			selectElement2 = document.querySelector('#queryp2'); 		
+			output2 = selectElement2.options[selectElement2.selectedIndex].value; 
+						
+
+			selectElement3 = document.querySelector('#queryp3'); 		
+			output3 = selectElement3.options[selectElement3.selectedIndex].value; 
+						
+
+			selectElement4 = document.querySelector('#queryp4'); 		
+			output4 = selectElement4.options[selectElement4.selectedIndex].value;
+
+			selectElement5 = document.querySelector('#queryp5'); 		
+			output5 = selectElement5.options[selectElement5.selectedIndex].value; 
+
+			selectElement6 = document.querySelector('#queryp6'); 		
+			output6 = selectElement6.options[selectElement6.selectedIndex].value; 
+			var finalOutput = output + " " + output2 +" "+ output3 +" "+ output4 +" "+output5 +" "+output6;
+
+
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+			
+					document.write(this.responseText);
+
+
+				}
+			};
+			   // new HttpRequest instance
+ 
+			xhttp.open("POST", "/");
+			xhttp.setRequestHeader("Content-Type", "application/json");
+			xhttp.send(JSON.stringify({data:finalOutput}));
+					
+	} 
+	</script>
+</body>
+<script>  
+$( document ).ready(function() {
+    
+  $("#query").change(function() {
+    
+    var el = $(this) ;
+    console.log(el)
+    if(el.val() === "How many") {
+	
+	$("#queryp2 option:last-child").remove() ;
+	$("#queryp2 option:last-child").remove() ;
+    $("#queryp2").append("   <option>Egresses does</option>");
+	$("#queryp2").append("   <option>Ingresses does</option>");
+    }
+      else if(el.val() === "Where is traffic" ) {
+		$("#queryp2 option:last-child").remove() ;
+		$("#queryp2 option:last-child").remove() ;
+		$("#queryp2").append("   <option>from</option>");
+		$("#queryp2").append("   <option>to</option>");
+		}
+	if(el.val() === "How many") {
+	$("#queryp4 option:last-child").remove() ;
+	$("#queryp4 option:last-child").remove() ;
+    $("#queryp4").append("   <option>have?</option>");
+    }
+      else if(el.val() === "Where is traffic" ) {
+		$("#queryp4 option:last-child").remove() ;
+		$("#queryp4").append("   <option>going to?</option>");
+		$("#queryp4").append("   <option>coming from?</option>");
+        }
+	if(el.val() === "How many") {
+    //$("#queryp5").append("   <option>NULL</option>");
+    }
+      else if(el.val() === "Where is traffic" ) {
+		$("#queryp5").attr("hidden",false);
+		$("#queryp5 option:last-child").remove() ;
+		$("#queryp5").append("   <option>Order</option>");
+        }
+	if(el.val() === "How many") {
+	$("#queryp6 option:last-child").remove() ;
+	$("#queryp6 option:last-child").remove() ;
+    $("#queryp6").append("   <option>NULL</option>");
+    }
+      else if(el.val() === "Where is traffic" ) {
+		$("#queryp6").attr("hidden",false);
+		$("#queryp6 option:last-child").remove() ;
+		$("#queryp6").append("   <option>1</option>");
+		$("#queryp6").append("   <option>2</option>");        
+}
+ });
+ 
+});
+
+</script>
+</html>
+
+
