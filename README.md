@@ -35,6 +35,6 @@ To run:
 
 Work By
 -------
-Tejas Arya, Vaibhav Joshi, Ninad Godambe
+Tejas Arya(https://github.com/aryatejas2), Vaibhav Joshi(https://github.com/joshivaibhav), Ninad Godambe(https://github.com/NinadGodambe)
  
 
