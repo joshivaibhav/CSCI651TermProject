@@ -1,4 +1,4 @@
-# CSCI Term Project
+# Research Paper and Motivation
 This repository contains the code for implementing the algorithms and techniques in the research paper : 
 
 Net2Text : https://www.usenix.org/conference/nsdi18/presentation/birkner
